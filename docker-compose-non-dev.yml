@@ -46,6 +46,8 @@ services:
     ports:
       - 8088:8088
     volumes: *superset-volumes
+    networks:
+      - dokploy-network
 
   superset-init:
     container_name: superset_init
@@ -57,6 +59,8 @@ services:
         required: true
     user: "root"
     volumes: *superset-volumes
+    networks:
+      - dokploy-network
     healthcheck:
       disable: true
 
@@ -71,6 +75,8 @@ services:
     restart: unless-stopped
     user: "root"
     volumes: *superset-volumes
+    networks:
+      - dokploy-network
     healthcheck:
       test:
         [
@@ -89,6 +95,8 @@ services:
     restart: unless-stopped
     user: "root"
     volumes: *superset-volumes
+    networks:
+      - dokploy-network
     healthcheck:
       disable: true
 
